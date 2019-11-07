@@ -45,26 +45,12 @@ public class menuControl extends JFrame {
 		JMenu mnNewMenu_2 = new JMenu("Old Labs");
 		menuBar.add(mnNewMenu_2);
 		
-		JMenuItem mntmPalliLoops = new JMenuItem("Palli Loops");
+		JMenuItem mntmPalliLoops = new JMenuItem("Pallindrome");
 		mntmPalliLoops.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
 		mnNewMenu_2.add(mntmPalliLoops);
-		
-		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Palli Recurssion");
-		mntmNewMenuItem_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		mnNewMenu_2.add(mntmNewMenuItem_1);
-		
-		JMenuItem mntmNewMenuItem_2 = new JMenuItem("Palli Reverse");
-		mntmNewMenuItem_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		mnNewMenu_2.add(mntmNewMenuItem_2);
 		
 		JMenu mnNewLabs = new JMenu("New labs");
 		menuBar.add(mnNewLabs);
