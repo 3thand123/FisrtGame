@@ -42,53 +42,41 @@ public class menuControl extends JFrame {
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		
-		JMenu mnFile = new JMenu("Midterm");
-		menuBar.add(mnFile);
+		JMenu mnNewMenu_2 = new JMenu("Old Labs");
+		menuBar.add(mnNewMenu_2);
 		
-		JMenuItem mntmStartrestart = new JMenuItem("Start/Restart");
-		mnFile.add(mntmStartrestart);
-		
-		JMenuItem mntmScore = new JMenuItem("Score");
-		mnFile.add(mntmScore);
-		
-		JMenu mnNewMenu_1 = new JMenu("New menu");
-		mnFile.add(mnNewMenu_1);
-		
-		JMenu mnCalculator = new JMenu("Intro");
-		menuBar.add(mnCalculator);
-		
-		JMenu mnJumpers = new JMenu("Jumpers");
-		mnCalculator.add(mnJumpers);
-		
-		JMenuItem mntmOriginal = new JMenuItem("Original");
-		mnJumpers.add(mntmOriginal);
-		
-		JMenuItem mntmInputs = new JMenuItem("Inputs");
-		mnJumpers.add(mntmInputs);
-		
-		JMenuItem mntmNewMenuItem = new JMenuItem("Pythagorus");
-		mnCalculator.add(mntmNewMenuItem);
-		
-		JMenu mnNewMenu = new JMenu("Sprint 1");
-		menuBar.add(mnNewMenu);
-		
-		JMenuItem mntmShorthand = new JMenuItem("Shorthand");
-		mnNewMenu.add(mntmShorthand);
-		
-		JMenuItem mntmPalindrom = new JMenuItem("Palindrom 3");
-		mnNewMenu.add(mntmPalindrom);
-		
-		JMenu mnSprint = new JMenu("Sprint 2");
-		menuBar.add(mnSprint);
-		
-		JMenuItem mntmCalculator = new JMenuItem("Calculator");
-		mntmCalculator.addActionListener(new ActionListener() {
+		JMenuItem mntmPalliLoops = new JMenuItem("Palli Loops");
+		mntmPalliLoops.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				calculator frame = new calculator();
-				frame.setVisible(true);			
 			}
 		});
-		mnSprint.add(mntmCalculator);
+		mnNewMenu_2.add(mntmPalliLoops);
+		
+		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Palli Recurssion");
+		mntmNewMenuItem_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		mnNewMenu_2.add(mntmNewMenuItem_1);
+		
+		JMenuItem mntmNewMenuItem_2 = new JMenuItem("Palli Reverse");
+		mntmNewMenuItem_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		mnNewMenu_2.add(mntmNewMenuItem_2);
+		
+		JMenu mnNewLabs = new JMenu("New labs");
+		menuBar.add(mnNewLabs);
+		
+		JMenuItem mntmCalculator_1 = new JMenuItem("Calculator");
+		mntmCalculator_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				calculator frame = new calculator();
+				frame.setVisible(true);
+			}
+		});
+		mnNewLabs.add(mntmCalculator_1);
 		
 	}
 	
