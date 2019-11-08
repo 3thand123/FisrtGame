@@ -13,7 +13,7 @@ import java.awt.Font;
 public class calculator extends menuControl {
 
 	/**
-	 * 
+	 * TEST
 	 */
 	// view section ++
 	private static final long serialVersionUID = 1L;
