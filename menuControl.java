@@ -7,6 +7,8 @@ import javax.swing.JMenuItem;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JTextField;
+import java.awt.BorderLayout;
 
 public class menuControl extends JFrame {
 
@@ -48,6 +50,8 @@ public class menuControl extends JFrame {
 		JMenuItem mntmPalliLoops = new JMenuItem("Pallindrome");
 		mntmPalliLoops.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				palliUI frame = new palliUI();
+				frame.setVisible(true);
 			}
 		});
 		mnNewMenu_2.add(mntmPalliLoops);

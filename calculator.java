@@ -9,6 +9,9 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Color;
 import java.awt.Font;
+import javax.swing.JTextField;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class calculator extends menuControl {
 
@@ -312,6 +315,7 @@ public class calculator extends menuControl {
 		});
 		divi.setBounds(349, 112, 41, 29);
 		contentPane.add(divi);
+		
 		
 		// prepare Calculator values
 		clearCalculator();
