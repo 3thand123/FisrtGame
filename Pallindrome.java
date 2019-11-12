@@ -43,7 +43,7 @@ public class Pallindrome
     	int length = temp.length();
         char compare[] = temp.toCharArray();
         boolean goAway = false;
-        if (length == 1)
+        if (length == 1 || length == 0)
             goAway = true;
         else
             if(compare[0] == compare[length-1])

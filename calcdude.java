@@ -1,0 +1,401 @@
+import java.awt.EventQueue;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+import java.awt.Color;
+import java.awt.Font;
+import javax.swing.JTextField;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+
+public class calcdude extends menuControl {
+	private static final long serialVersionUID = 1L;
+	private JTextField textField;
+	double num = 0, num1 = 0, num2 = 0;
+    String thing1 = "";
+    boolean operator = false;
+    int opDone = 0;
+    String opPressed;
+    double ans = 0;
+    String numero = "";
+    
+	public calcdude() {
+		
+        setBounds(100, 100, 330, 510);
+        //setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //getContentPane().setLayout(null);
+        
+		textField = new JTextField();
+        textField.setBounds(10, 11, 294, 70);
+        getContentPane().add(textField);
+        textField.setColumns(10);
+        
+        JButton Bclear = new JButton("C");
+        Bclear.setFont(new Font("Arial", Font.BOLD, 25));
+        Bclear.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent arg0) {
+            	num1 = 0;
+            	num2 = 0;
+            	num = 0;
+            	ans = 0;
+            	opDone = 0;
+            	thing1 = "";
+            	displayAnswer(0.0);
+            }
+        });
+        Bclear.setBounds(10, 90, 70, 70);
+        getContentPane().add(Bclear);
+        
+        JButton Bback = new JButton("<");
+        Bback.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+            	thing1 = thing1.substring(0, thing1.length()-1);
+            	displayAnswer(Double.valueOf(thing1));
+            	loadNumber(thing1);
+            }
+        });
+        Bback.setFont(new Font("Tahoma", Font.BOLD, 25));
+        Bback.setBounds(85, 90, 70, 70);
+        getContentPane().add(Bback);
+        
+        JButton Bmod = new JButton("%");
+        Bmod.setFont(new Font("Tahoma", Font.BOLD, 25));
+        Bmod.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+            	checkCalc(operator);
+                if(opDone > 0)
+                    displayAnswer(ans);
+                operator = true;
+                opDone++;
+                opPressed = "%";
+                thing1 = "";
+            }
+        });
+        Bmod.setBounds(160, 90, 70, 70);
+        getContentPane().add(Bmod);
+        
+        JButton Badd = new JButton("+");
+        Badd.setFont(new Font("Tahoma", Font.BOLD, 25));
+        Badd.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                checkCalc(operator);
+                if(opDone > 0)
+                    displayAnswer(ans);
+                operator = true;
+                opDone++;
+                opPressed = "+";
+                thing1 = "";
+            }
+        });
+        Badd.setBounds(235, 90, 70, 70);
+        getContentPane().add(Badd);
+        
+        /*********************row 2*************************/
+        JButton B7 = new JButton("7");
+        B7.setFont(new Font("Tahoma", Font.BOLD, 25));
+        B7.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                updateDisplay("7");
+                loadNumber("7");
+                //checkCalc(operator);
+            }
+        });
+        B7.setBounds(10, 165, 70, 70);
+        getContentPane().add(B7);
+        
+        
+        JButton B8 = new JButton("8");
+        B8.setFont(new Font("Tahoma", Font.BOLD, 25));
+        B8.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                updateDisplay("8");
+                loadNumber("8");
+                //checkCalc(operator);
+            }
+        });
+        B8.setBounds(85, 165, 70, 70);
+        getContentPane().add(B8);
+        
+        JButton B9 = new JButton("9");
+        B9.setFont(new Font("Tahoma", Font.BOLD, 25));
+        B9.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                updateDisplay("9");
+                loadNumber("9");
+                //checkCalc(operator);
+            }
+        });
+        B9.setBounds(160, 165, 70, 70);
+        getContentPane().add(B9);
+        
+        JButton Bsub = new JButton("-");
+        Bsub.setFont(new Font("Tahoma", Font.BOLD, 25));
+        Bsub.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                checkCalc(operator);
+                if(opDone > 0)
+                    displayAnswer(ans);
+                operator = true;
+                opDone++;
+                opPressed = "-";
+                thing1 = "";
+            }
+        });
+        Bsub.setBounds(235, 165, 70, 70);
+        getContentPane().add(Bsub);
+        
+        /*********************row 3*************************/
+        JButton B4 = new JButton("4");
+        B4.setFont(new Font("Tahoma", Font.BOLD, 25));
+        B4.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                updateDisplay("4");
+                loadNumber("4");
+                //checkCalc(operator);
+            }
+        });
+        B4.setBounds(10, 240, 70, 70);
+        getContentPane().add(B4);
+        
+        JButton B5 = new JButton("5");
+        B5.setFont(new Font("Tahoma", Font.BOLD, 25));
+        B5.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                updateDisplay("5");
+                loadNumber("5");
+                //checkCalc(operator);
+            }
+        });
+        B5.setBounds(85, 240, 70, 70);
+        getContentPane().add(B5);
+        
+        JButton B6 = new JButton("6");
+        B6.setFont(new Font("Tahoma", Font.BOLD, 25));
+        B6.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                updateDisplay("6");
+                loadNumber("6");
+                //checkCalc(operator);
+            }
+        });
+        B6.setBounds(160, 240, 70, 70);
+        getContentPane().add(B6);
+        
+        JButton Bmulti = new JButton("*");
+        Bmulti.setFont(new Font("Tahoma", Font.BOLD, 25));
+        Bmulti.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                checkCalc(operator);
+                if(opDone > 0)
+                    displayAnswer(ans);
+                operator = true;
+                opDone++;
+                opPressed = "*";
+                thing1 = "";
+            }
+        });
+        Bmulti.setBounds(235, 240, 70, 70);
+        getContentPane().add(Bmulti);
+        
+        /*********************row 4*************************/
+        JButton B1 = new JButton("1");
+        B1.setFont(new Font("Tahoma", Font.BOLD, 25));
+        B1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                updateDisplay("1");
+                loadNumber("1");
+                //checkCalc(operator);
+            }
+        });
+        B1.setBounds(10, 315, 70, 70);
+        getContentPane().add(B1);
+        
+        JButton B2 = new JButton("2");
+        B2.setFont(new Font("Tahoma", Font.BOLD, 25));
+        B2.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                updateDisplay("2");
+                loadNumber("2");
+                //checkCalc(operator);
+            }
+        });
+        B2.setBounds(85, 315, 70, 70);
+        getContentPane().add(B2);
+        
+        JButton B3 = new JButton("3");
+        B3.setFont(new Font("Tahoma", Font.BOLD, 25));
+        B3.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                updateDisplay("3");
+                loadNumber("3");
+                //checkCalc(operator);
+            }
+        });
+        B3.setBounds(160, 315, 70, 70);
+        getContentPane().add(B3);
+        
+        JButton Bdiv = new JButton("/");
+        Bdiv.setFont(new Font("Tahoma", Font.BOLD, 25));
+        Bdiv.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                checkCalc(operator);
+                if(opDone > 0)
+                    displayAnswer(ans);
+                operator = true;
+                opDone++;
+                opPressed = "/";
+                thing1 = "";
+            }
+        });
+        Bdiv.setBounds(235, 315, 70, 70);
+        getContentPane().add(Bdiv);
+        
+        /*********************row 5*************************/
+        JButton B0 = new JButton("0");
+        B0.setFont(new Font("Tahoma", Font.BOLD, 25));
+        B0.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                updateDisplay("0");
+                loadNumber("0");
+                //checkCalc(operator);
+            }
+        });
+        B0.setBounds(10, 390, 70, 70);
+        getContentPane().add(B0);
+        
+        JButton Bsign = new JButton("-+");
+        Bsign.setFont(new Font("Tahoma", Font.BOLD, 25));
+        Bsign.setBounds(85, 390, 70, 70);
+        getContentPane().add(Bsign);
+        
+        JButton Bdec = new JButton(".");
+        Bdec.setFont(new Font("Tahoma", Font.BOLD, 25));
+        Bdec.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                updateDisplay(".");
+                loadNumber(".");
+                //checkCalc(operator);
+            }
+        });
+        Bdec.setBounds(160, 390, 70, 70);
+        getContentPane().add(Bdec);
+        
+        JButton Bequal = new JButton("=");
+        Bequal.setFont(new Font("Tahoma", Font.BOLD, 25));
+        Bequal.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                checkCalc(operator);
+                displayAnswer(ans);
+            }
+        });
+        Bequal.setBounds(235, 390, 70, 70);
+        getContentPane().add(Bequal);
+    }
+	public void updateDisplay(String num)
+    {
+        thing1 = thing1.concat(num);
+        textField.setText(thing1);
+    }
+    
+    public void checkCalc(boolean opmaybe)
+    {
+        if (opmaybe)
+            doCalc(opPressed);
+        operator = false;
+    }
+    
+    public void doCalc(String opMan)
+    {
+        switch(opMan)
+        {
+            case "+":
+                Add(num, num1, num2);
+                break;
+            case "-":
+                Subtract(num, num1, num2);
+                break;
+            case "*":
+                Multiply(num, num1, num2);
+                break;
+            case "/":
+                Divide(num, num1, num2);
+                break;
+            case "%":
+            	Percent(num, num1, num2);
+            	break;
+        }
+    }
+    
+    public void loadNumber(String number)
+    {
+        if(opDone % 2 == 0)
+        {
+            //thing1 = thing1.concat(number);
+            num1 = Double.valueOf(thing1);
+        }
+        else
+        {
+            num2 = Double.valueOf(thing1);
+        }
+        num = Double.valueOf(thing1);
+    }
+    
+    public void displayAnswer(double TheAnswer)
+    {
+        String display = "";
+        display = String.valueOf(TheAnswer);
+        textField.setText(display);
+    }
+    
+    public void Add(double n, double n1, double n2)
+    {
+        if (opDone == 1)
+            ans = n1 + n2;
+        else
+            ans+=num;
+    }
+    
+    public void Subtract(double n, double n1, double n2)
+    {
+        if (opDone == 1)
+            ans = Math.abs(n1 - n2);
+        else
+            ans-=num;
+    }
+    
+     public void Multiply(double n, double n1, double n2)
+    {
+        if (opDone == 1)
+            ans = n1*n2;
+        else
+            ans*=num;
+    }
+    
+    public void Divide(double n, double n1, double n2)
+    {
+        if (opDone == 1)
+            ans = n1/n2;
+        else
+            ans/=num;
+    }
+    
+    public void Percent(double n, double n1, double n2)
+    {
+    	if (opDone == 1)
+    		ans = num1/100;
+    	else
+    		ans = num1/100;
+    }
+}
+	/**
+	 * TEST
+	 */
+	// view section ++
+	
+	
+	

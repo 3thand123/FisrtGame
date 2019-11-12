@@ -62,7 +62,7 @@ public class menuControl extends JFrame {
 		JMenuItem mntmCalculator_1 = new JMenuItem("Calculator");
 		mntmCalculator_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				calculator frame = new calculator();
+				calcdude frame = new calcdude();
 				frame.setVisible(true);
 			}
 		});
