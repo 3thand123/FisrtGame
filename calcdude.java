@@ -25,18 +25,22 @@ public class calcdude extends menuControl {
     String numero = "";
     
 	public calcdude() {
+		getContentPane().setBackground(new Color(240, 128, 128));
+		getContentPane().setLayout(null);
 		
-        setBounds(100, 100, 330, 510);
+        //setBounds(100, 100, 330, 510);
+		//getContentPane().setLayout(null);
         //setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         //getContentPane().setLayout(null);
         
 		textField = new JTextField();
-        textField.setBounds(10, 11, 294, 70);
+		textField.setFont(new Font("Apple Chancery", Font.PLAIN, 16));
+        textField.setBounds(6, 11, 438, 38);
         getContentPane().add(textField);
         textField.setColumns(10);
         
         JButton Bclear = new JButton("C");
-        Bclear.setFont(new Font("Arial", Font.BOLD, 25));
+        Bclear.setFont(new Font("Apple Chancery", Font.BOLD, 25));
         Bclear.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
             	num1 = 0;
@@ -48,10 +52,12 @@ public class calcdude extends menuControl {
             	displayAnswer(0.0);
             }
         });
-        Bclear.setBounds(10, 90, 70, 70);
+        Bclear.setBounds(113, 49, 36, 28);
         getContentPane().add(Bclear);
         
         JButton Bback = new JButton("<");
+        Bback.setForeground(new Color(0, 0, 0));
+        Bback.setBackground(new Color(0, 0, 0));
         Bback.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
             	thing1 = thing1.substring(0, thing1.length()-1);
@@ -59,28 +65,12 @@ public class calcdude extends menuControl {
             	loadNumber(thing1);
             }
         });
-        Bback.setFont(new Font("Tahoma", Font.BOLD, 25));
-        Bback.setBounds(85, 90, 70, 70);
+        Bback.setFont(new Font("Apple Chancery", Font.BOLD, 25));
+        Bback.setBounds(171, 49, 36, 28);
         getContentPane().add(Bback);
         
-        JButton Bmod = new JButton("%");
-        Bmod.setFont(new Font("Tahoma", Font.BOLD, 25));
-        Bmod.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-            	checkCalc(operator);
-                if(opDone > 0)
-                    displayAnswer(ans);
-                operator = true;
-                opDone++;
-                opPressed = "%";
-                thing1 = "";
-            }
-        });
-        Bmod.setBounds(160, 90, 70, 70);
-        getContentPane().add(Bmod);
-        
         JButton Badd = new JButton("+");
-        Badd.setFont(new Font("Tahoma", Font.BOLD, 25));
+        Badd.setFont(new Font("Apple Chancery", Font.BOLD, 25));
         Badd.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 checkCalc(operator);
@@ -92,12 +82,12 @@ public class calcdude extends menuControl {
                 thing1 = "";
             }
         });
-        Badd.setBounds(235, 90, 70, 70);
+        Badd.setBounds(229, 49, 36, 28);
         getContentPane().add(Badd);
         
         /*********************row 2*************************/
         JButton B7 = new JButton("7");
-        B7.setFont(new Font("Tahoma", Font.BOLD, 25));
+        B7.setFont(new Font("Apple Chancery", Font.BOLD, 25));
         B7.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 updateDisplay("7");
@@ -105,12 +95,12 @@ public class calcdude extends menuControl {
                 //checkCalc(operator);
             }
         });
-        B7.setBounds(10, 165, 70, 70);
+        B7.setBounds(113, 89, 36, 28);
         getContentPane().add(B7);
         
         
         JButton B8 = new JButton("8");
-        B8.setFont(new Font("Tahoma", Font.BOLD, 25));
+        B8.setFont(new Font("Apple Chancery", Font.BOLD, 25));
         B8.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 updateDisplay("8");
@@ -118,11 +108,11 @@ public class calcdude extends menuControl {
                 //checkCalc(operator);
             }
         });
-        B8.setBounds(85, 165, 70, 70);
+        B8.setBounds(171, 89, 36, 28);
         getContentPane().add(B8);
         
         JButton B9 = new JButton("9");
-        B9.setFont(new Font("Tahoma", Font.BOLD, 25));
+        B9.setFont(new Font("Apple Chancery", Font.BOLD, 25));
         B9.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 updateDisplay("9");
@@ -130,11 +120,11 @@ public class calcdude extends menuControl {
                 //checkCalc(operator);
             }
         });
-        B9.setBounds(160, 165, 70, 70);
+        B9.setBounds(229, 89, 36, 28);
         getContentPane().add(B9);
         
         JButton Bsub = new JButton("-");
-        Bsub.setFont(new Font("Tahoma", Font.BOLD, 25));
+        Bsub.setFont(new Font("Apple Chancery", Font.BOLD, 25));
         Bsub.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 checkCalc(operator);
@@ -146,12 +136,12 @@ public class calcdude extends menuControl {
                 thing1 = "";
             }
         });
-        Bsub.setBounds(235, 165, 70, 70);
+        Bsub.setBounds(287, 49, 36, 28);
         getContentPane().add(Bsub);
         
         /*********************row 3*************************/
         JButton B4 = new JButton("4");
-        B4.setFont(new Font("Tahoma", Font.BOLD, 25));
+        B4.setFont(new Font("Apple Chancery", Font.BOLD, 25));
         B4.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 updateDisplay("4");
@@ -159,11 +149,11 @@ public class calcdude extends menuControl {
                 //checkCalc(operator);
             }
         });
-        B4.setBounds(10, 240, 70, 70);
+        B4.setBounds(113, 129, 36, 28);
         getContentPane().add(B4);
         
         JButton B5 = new JButton("5");
-        B5.setFont(new Font("Tahoma", Font.BOLD, 25));
+        B5.setFont(new Font("Apple Chancery", Font.BOLD, 25));
         B5.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 updateDisplay("5");
@@ -171,11 +161,11 @@ public class calcdude extends menuControl {
                 //checkCalc(operator);
             }
         });
-        B5.setBounds(85, 240, 70, 70);
+        B5.setBounds(171, 129, 36, 28);
         getContentPane().add(B5);
         
         JButton B6 = new JButton("6");
-        B6.setFont(new Font("Tahoma", Font.BOLD, 25));
+        B6.setFont(new Font("Apple Chancery", Font.BOLD, 25));
         B6.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 updateDisplay("6");
@@ -183,11 +173,11 @@ public class calcdude extends menuControl {
                 //checkCalc(operator);
             }
         });
-        B6.setBounds(160, 240, 70, 70);
+        B6.setBounds(229, 129, 36, 28);
         getContentPane().add(B6);
         
         JButton Bmulti = new JButton("*");
-        Bmulti.setFont(new Font("Tahoma", Font.BOLD, 25));
+        Bmulti.setFont(new Font("Apple Chancery", Font.BOLD, 25));
         Bmulti.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 checkCalc(operator);
@@ -199,12 +189,12 @@ public class calcdude extends menuControl {
                 thing1 = "";
             }
         });
-        Bmulti.setBounds(235, 240, 70, 70);
+        Bmulti.setBounds(287, 89, 36, 28);
         getContentPane().add(Bmulti);
         
         /*********************row 4*************************/
         JButton B1 = new JButton("1");
-        B1.setFont(new Font("Tahoma", Font.BOLD, 25));
+        B1.setFont(new Font("Apple Chancery", Font.BOLD, 25));
         B1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 updateDisplay("1");
@@ -212,11 +202,11 @@ public class calcdude extends menuControl {
                 //checkCalc(operator);
             }
         });
-        B1.setBounds(10, 315, 70, 70);
+        B1.setBounds(113, 169, 36, 28);
         getContentPane().add(B1);
         
         JButton B2 = new JButton("2");
-        B2.setFont(new Font("Tahoma", Font.BOLD, 25));
+        B2.setFont(new Font("Apple Chancery", Font.BOLD, 25));
         B2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 updateDisplay("2");
@@ -224,11 +214,11 @@ public class calcdude extends menuControl {
                 //checkCalc(operator);
             }
         });
-        B2.setBounds(85, 315, 70, 70);
+        B2.setBounds(171, 169, 36, 28);
         getContentPane().add(B2);
         
         JButton B3 = new JButton("3");
-        B3.setFont(new Font("Tahoma", Font.BOLD, 25));
+        B3.setFont(new Font("Apple Chancery", Font.BOLD, 25));
         B3.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 updateDisplay("3");
@@ -236,11 +226,11 @@ public class calcdude extends menuControl {
                 //checkCalc(operator);
             }
         });
-        B3.setBounds(160, 315, 70, 70);
+        B3.setBounds(229, 169, 36, 28);
         getContentPane().add(B3);
         
         JButton Bdiv = new JButton("/");
-        Bdiv.setFont(new Font("Tahoma", Font.BOLD, 25));
+        Bdiv.setFont(new Font("Apple Chancery", Font.BOLD, 25));
         Bdiv.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 checkCalc(operator);
@@ -252,12 +242,12 @@ public class calcdude extends menuControl {
                 thing1 = "";
             }
         });
-        Bdiv.setBounds(235, 315, 70, 70);
+        Bdiv.setBounds(287, 129, 36, 28);
         getContentPane().add(Bdiv);
         
         /*********************row 5*************************/
         JButton B0 = new JButton("0");
-        B0.setFont(new Font("Tahoma", Font.BOLD, 25));
+        B0.setFont(new Font("Apple Chancery", Font.BOLD, 25));
         B0.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 updateDisplay("0");
@@ -265,16 +255,11 @@ public class calcdude extends menuControl {
                 //checkCalc(operator);
             }
         });
-        B0.setBounds(10, 390, 70, 70);
+        B0.setBounds(113, 209, 36, 28);
         getContentPane().add(B0);
         
-        JButton Bsign = new JButton("-+");
-        Bsign.setFont(new Font("Tahoma", Font.BOLD, 25));
-        Bsign.setBounds(85, 390, 70, 70);
-        getContentPane().add(Bsign);
-        
         JButton Bdec = new JButton(".");
-        Bdec.setFont(new Font("Tahoma", Font.BOLD, 25));
+        Bdec.setFont(new Font("Apple Chancery", Font.BOLD, 25));
         Bdec.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 updateDisplay(".");
@@ -282,18 +267,18 @@ public class calcdude extends menuControl {
                 //checkCalc(operator);
             }
         });
-        Bdec.setBounds(160, 390, 70, 70);
+        Bdec.setBounds(287, 169, 36, 28);
         getContentPane().add(Bdec);
         
         JButton Bequal = new JButton("=");
-        Bequal.setFont(new Font("Tahoma", Font.BOLD, 25));
+        Bequal.setFont(new Font("Apple Chancery", Font.BOLD, 25));
         Bequal.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 checkCalc(operator);
                 displayAnswer(ans);
             }
         });
-        Bequal.setBounds(235, 390, 70, 70);
+        Bequal.setBounds(287, 209, 36, 28);
         getContentPane().add(Bequal);
     }
 	public void updateDisplay(String num)

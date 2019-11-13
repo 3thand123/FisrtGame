@@ -62,6 +62,6 @@ public class MethodSearch
         //Menu.main();
         GUI.gui(methods);
 
-        sc.close(); 
+        //sc.close(); 
     }
 }

@@ -6,8 +6,8 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/Users/1859023/Downloads/Jars/apcslib.jar"/>
-	<classpathentry kind="lib" path="/Users/1859023/Downloads/Jars/chndocs.jar"/>
-	<classpathentry kind="lib" path="/Users/1859023/Downloads/Jars/chnutil.jar"/>
+	<classpathentry kind="lib" path="/Users/SMDiMac/Downloads/chnutil.jar"/>
+	<classpathentry kind="lib" path="/Users/SMDiMac/Downloads/chndocs.jar"/>
+	<classpathentry kind="lib" path="/Users/SMDiMac/Downloads/apcslib.jar"/>
 	<classpathentry kind="output" path=""/>
 </classpath>
