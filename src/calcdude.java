@@ -2,6 +2,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -9,11 +10,16 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Image;
+
 import javax.swing.JTextField;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
 public class calcdude extends menuControl {
+
+	JLabel Bowser;
+	
 	private static final long serialVersionUID = 1L;
 	private JTextField textField;
 	double num = 0, num1 = 0, num2 = 0;
@@ -280,6 +286,29 @@ public class calcdude extends menuControl {
         });
         Bequal.setBounds(287, 209, 36, 28);
         getContentPane().add(Bequal);
+        
+        Bowser = new JLabel("");
+        Image image = new ImageIcon(this.getClass().getResource("/Bowser.png")).getImage();
+        Bowser.setIcon(new ImageIcon(image));
+        Bowser.setBounds(384, 61, 60, 82);
+        getContentPane().add(Bowser);
+        
+        JLabel Mario = new JLabel("");
+        Image image2 = new ImageIcon(this.getClass().getResource("/Mario.png")).getImage();
+        Mario.setIcon(new ImageIcon(image2));
+        Mario.setBounds(330, 97, 82, 70);
+        getContentPane().add(Mario);
+        
+        JLabel Link = new JLabel("");
+        Image image3 = new ImageIcon(this.getClass().getResource("/Link.png")).getImage();
+        Link.setIcon(new ImageIcon(image3));
+        Link.setBounds(6, 62, 73, 70);
+        getContentPane().add(Link);
+        
+        
+        
+        
+        
     }
 	public void updateDisplay(String num)
     {
