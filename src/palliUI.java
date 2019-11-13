@@ -10,6 +10,8 @@ import javax.swing.SwingConstants;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JTextField;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class palliUI extends menuControl {
 	
@@ -29,6 +31,18 @@ public class palliUI extends menuControl {
 		ContentPane.setLayout(null);
 		
 		textField = new JTextField();
+		textField.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if (e.getKeyCode()== KeyEvent.VK_ENTER)
+				{
+					input = textField.getText();
+					input = input.replaceAll("[\\W]", "");
+					input = input.toLowerCase();
+					doStuff(input);
+				}
+			}
+		});
 		textField.setBounds(160, 35, 130, 26);
 		getContentPane().add(textField);
 		textField.setColumns(10);
